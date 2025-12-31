@@ -1,5 +1,6 @@
 'use cache'
 
+import PokemonGrid from "@/components/pokemon/pokemon-grid"
 import { PokemonsSchema, SimplePokemon } from "@/schemas"
 import Image from "next/image"
 
@@ -47,30 +48,13 @@ export default async function PokemonsPage() {
         <h2>Error</h2>
         <p>No se pudieron cargar los pokémones.</p>
       </div>
-    );
+    )
   }
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-wrap gap-10 items-center">
-
-        {
-          pokemons.map(pokemon => (
-            <div key={pokemon.id}>
-              <div className="relative w-24 h-24">
-                <Image
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-                  fill
-                  alt="nombre"
-                />
-              </div>
-              <p>{pokemon.name}</p>
-            </div>
-
-          ))
-        }
-
-      </div>
+    <span className="text-5xl my-10">Listado de Pokemons <small>estático</small> </span>
+      <PokemonGrid pokemons={pokemons} />
     </div>
   )
 }
