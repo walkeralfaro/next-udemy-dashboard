@@ -14,10 +14,11 @@ interface MenuItemProps {
 export default function MenuItem({ title, url, icon }: MenuItemProps) {
 
   const currentPath = usePathname()
+  const isActive = currentPath === url || currentPath.startsWith(`${url}/`)
 
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton asChild className={`${currentPath === url && "bg-slate-200"}`}>
+      <SidebarMenuButton asChild className={isActive ? "bg-slate-200" : undefined}>
         <Link href={url}>
           {icon}
           <span>{title}</span>

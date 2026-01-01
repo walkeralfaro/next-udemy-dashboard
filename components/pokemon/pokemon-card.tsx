@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardTitle } from "../ui/card";
 import { SimplePokemon } from "@/schemas";
+import Link from "next/link";
 
 export default function PokemonCard({ pokemon }: { pokemon: SimplePokemon }) {
   return (
@@ -23,7 +24,9 @@ export default function PokemonCard({ pokemon }: { pokemon: SimplePokemon }) {
         <CardTitle className="text-sm mb-1 capitalize">{pokemon.name}</CardTitle>
 
         <div className="flex items-center justify-between mt-4">
-          <Button size="sm" className="text-xs px-2 py-1 h-7 w-full cursor-pointer">Más información</Button>
+          <Link href={`/dashboard/pokemons/pokemon/${pokemon.id}`} className="w-full">
+            <Button size="sm" className="text-xs px-2 py-1 h-7 w-full cursor-pointer">Más información</Button>
+          </Link>
         </div>
       </CardContent>
     </Card>
