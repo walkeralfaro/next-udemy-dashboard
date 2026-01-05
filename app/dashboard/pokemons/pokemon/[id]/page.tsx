@@ -1,14 +1,10 @@
 import { Metadata } from "next"
 import { Suspense } from "react"
 import PokemonPageContent from "./pokemon-page-content"
+import { getPokemon } from "@/lib/get-pokemon"
 
 type Props = {
   params: Promise<{ id: string }>
-}
-
-const getPokemon = async (id: string) => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-  return res.json()
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
