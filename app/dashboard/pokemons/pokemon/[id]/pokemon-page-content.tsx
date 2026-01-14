@@ -94,9 +94,7 @@ export default async function PokemonPageContent({ params, }: { params: Promise<
 
             </div>
           </div>
-
-
-
+          
         </div>
       </div>
     </div>
