@@ -7,6 +7,23 @@ type Props = {
   params: Promise<{ id: string }>
 }
 
+// export async function generateStaticParams() {
+//   return Array.from({ length: 151 }, (_, i) => ({
+//     id: String(i + 1),
+//   }))
+// }
+
+export async function generateStaticParams() {
+  const res = await fetch(
+    'https://pokeapi.co/api/v2/pokemon?limit=151'
+  )
+  const data = await res.json()
+
+  return data.results.map((pokemon: { name: string }) => ({
+    slug: pokemon.name,
+  }))
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const pokemon = await getPokemon(id)
@@ -24,4 +41,3 @@ export default function PokemonPage(props: Props) {
     </Suspense>
   )
 }
-

@@ -24,7 +24,7 @@ export default function PokemonCard({ pokemon }: { pokemon: SimplePokemon }) {
         <CardTitle className="text-sm mb-1 capitalize">{pokemon.name}</CardTitle>
 
         <div className="flex items-center justify-between mt-4">
-          <Link href={`/dashboard/pokemons/pokemon/${pokemon.id}`} className="w-full">
+          <Link href={`/dashboard/pokemon/${pokemon.id}`} className="w-full">
             <Button size="sm" className="text-xs px-2 py-1 h-7 w-full cursor-pointer">Más información</Button>
           </Link>
         </div>
